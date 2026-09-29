@@ -1,6 +1,6 @@
 {
   "checkpoint_dir": "checkpoints_strict_v1",
-  "output_dir": "figures/station_wake_fig6_trace_100ep_v1",
+  "output_dir": "figures/station_wake_heldout_confirmation",
   "model_seeds": [
     0,
     1,
@@ -26,13 +26,30 @@
     "station_wake"
   ],
   "levels": [
+    0,
     5
   ],
   "eval_episodes": 100,
   "eval_seed_start": 9000,
   "disturbance_seed_start": 900000,
-  "save_step_data": true,
+  "save_step_data": false,
   "conditions": [
+    {
+      "condition": "station_wake_L0",
+      "enlarged": true,
+      "eval_seed_start": 9000,
+      "init_xy_range": 2.0,
+      "init_z_range": 1.0,
+      "init_yaw_deg": 90.0,
+      "target_xy_range": 1.0,
+      "target_z_range": 0.5,
+      "scenario": "station_wake",
+      "scenario_index": 3,
+      "level": 0,
+      "position_noise_sigma_m": 0.0,
+      "yaw_noise_sigma_deg": 0.0,
+      "wake_speed_m_s": 0.0
+    },
     {
       "condition": "station_wake_L5",
       "enlarged": true,
