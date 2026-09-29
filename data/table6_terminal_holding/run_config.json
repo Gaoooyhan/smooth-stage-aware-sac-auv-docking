@@ -1,0 +1,57 @@
+{
+  "checkpoint_dir": "checkpoints_strict_v1",
+  "output_dir": "figures/terminal_holding_validation_v1",
+  "model_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "eval_episodes": 100,
+  "eval_seed_start": 12000,
+  "delay_steps": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    7
+  ],
+  "method": {
+    "key": "smooth",
+    "method": "Proposed smooth SAC",
+    "exp_name": "strict_two_stage_v3_v1",
+    "reward_mode": "two_stage_v3"
+  },
+  "initial_condition": {
+    "condition": "enlarged",
+    "enlarged": true,
+    "init_xy_range": 2.0,
+    "init_z_range": 1.0,
+    "init_yaw_deg": 90.0,
+    "target_xy_range": 1.0,
+    "target_z_range": 0.5
+  },
+  "dt_s": 0.05,
+  "position_tolerance_m": 0.1,
+  "yaw_tolerance_deg": 5.0,
+  "hold_steps_required": 5,
+  "hold_duration_s": 0.25,
+  "perturbation_definition": {
+    "current_speed_m_s": 0.0,
+    "position_noise_sigma_m": 0.0,
+    "yaw_noise_sigma_deg": 0.0,
+    "mass_inertia_scale": 1.0,
+    "damping_scale": 1.0,
+    "actuator_effectiveness": 1.0,
+    "only_changed_variable": "integer command delay steps"
+  },
+  "metric_definitions": {
+    "instantaneous_entry_rate": "Fraction of all episodes that enter the terminal tolerance set at least once.",
+    "strict_success_rate": "Fraction of all episodes satisfying the terminal tolerances for five consecutive control steps.",
+    "first_entry_false_positive_rate": "Among episodes with at least one terminal entry, fraction whose first entry is not maintained for five consecutive steps.",
+    "pre_success_exit_rate": "Among strictly successful episodes, fraction that exit the terminal tolerance set after first entry and before eventual strict success.",
+    "instant_only_failure_rate": "Fraction of all episodes that enter the terminal region at least once but never achieve strict success."
+  }
+}
