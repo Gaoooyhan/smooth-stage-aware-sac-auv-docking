@@ -1,0 +1,207 @@
+{
+  "checkpoint_dir": "checkpoints_strict_v1",
+  "output_dir": "figures/graded_ocean_stress_formal",
+  "methods": [
+    "baseline",
+    "precision",
+    "hard",
+    "smooth"
+  ],
+  "families": [
+    "current",
+    "noise",
+    "delay",
+    "combined"
+  ],
+  "levels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "model_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "eval_episodes": 20,
+  "eval_seed_start": 6000,
+  "disturbance_seed_start": 600000,
+  "selected_methods": [
+    {
+      "key": "baseline",
+      "method": "Baseline SAC",
+      "exp_name": "strict_baseline_v1",
+      "reward_mode": "baseline"
+    },
+    {
+      "key": "precision",
+      "method": "Precision SAC",
+      "exp_name": "strict_precision_v2_v1",
+      "reward_mode": "precision_v2"
+    },
+    {
+      "key": "hard",
+      "method": "Hard-switch SAC",
+      "exp_name": "strict_hard_switch_v1",
+      "reward_mode": "hard_switch_v1"
+    },
+    {
+      "key": "smooth",
+      "method": "Proposed smooth SAC",
+      "exp_name": "strict_two_stage_v3_v1",
+      "reward_mode": "two_stage_v3"
+    }
+  ],
+  "current_speeds": [
+    0.0,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3
+  ],
+  "noise_levels": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.02,
+      2.0
+    ],
+    [
+      0.05,
+      5.0
+    ],
+    [
+      0.1,
+      10.0
+    ],
+    [
+      0.15,
+      15.0
+    ],
+    [
+      0.2,
+      20.0
+    ]
+  ],
+  "delay_steps": [
+    0,
+    2,
+    4,
+    5,
+    6,
+    7
+  ],
+  "mismatch_levels": [
+    [
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      1.1,
+      1.1,
+      0.95
+    ],
+    [
+      1.25,
+      1.25,
+      0.9
+    ],
+    [
+      1.5,
+      1.5,
+      0.8
+    ],
+    [
+      2.0,
+      2.0,
+      0.7
+    ],
+    [
+      2.5,
+      2.5,
+      0.6
+    ]
+  ],
+  "combined_levels": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      0.05,
+      0.02,
+      2.0,
+      1,
+      1.1,
+      1.1,
+      0.95
+    ],
+    [
+      0.1,
+      0.05,
+      5.0,
+      2,
+      1.25,
+      1.25,
+      0.9
+    ],
+    [
+      0.15,
+      0.08,
+      8.0,
+      3,
+      1.5,
+      1.5,
+      0.8
+    ],
+    [
+      0.2,
+      0.12,
+      12.0,
+      5,
+      2.0,
+      2.0,
+      0.7
+    ],
+    [
+      0.3,
+      0.2,
+      20.0,
+      7,
+      2.5,
+      2.5,
+      0.6
+    ]
+  ],
+  "current_model": {
+    "magnitude_modulation": "25% sinusoid, period 8 s",
+    "direction_modulation": "+/-15 deg sinusoid, period 12 s"
+  },
+  "noise_model": {
+    "white_noise": "configured sigma",
+    "episode_bias_sigma": "0.5 times configured sigma"
+  },
+  "initial_condition": {
+    "condition": "enlarged",
+    "enlarged": true,
+    "init_xy_range": 2.0,
+    "init_z_range": 1.0,
+    "init_yaw_deg": 90.0,
+    "target_xy_range": 1.0,
+    "target_z_range": 0.5
+  }
+}
